@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "briefId": "brief-specialist-documentation-specialist-bandwidth",
+  "artifactType": "message_brief",
+  "createdAt": "2026-06-01",
+  "projectName": "Specialist Documentation Example",
+  "messageGoal": "Stress-test internal documentation for scarce specialist attention, fast-path usefulness, expert autonomy, and evidence-boundary clarity.",
+  "targetAudience": "technical specialists, technical contributors, and technical solutions consultants",
+  "audienceFamiliarity": "high",
+  "channel": "internal_documentation",
+  "desiredAction": "use_documentation_for_task",
+  "sourceText": "This specialist documentation introduces a specialist enablement framework and onboarding model that everyone must learn before using the report. The basic process is simple enough for resistant readers, and the guide should be addicting to read so employees cannot live without it.",
+  "proofAvailable": [],
+  "constraints": [
+    "Do not claim employee research.",
+    "Preserve expert autonomy.",
+    "Keep evidence boundaries explicit.",
+    "Translate addictive-reading language into usable reading momentum without coercive framing."
+  ],
+  "unknowns": [
+    "No specialists have completed task validation for this document.",
+    "No skim-to-answer timing, follow-up-question count, or task-success data exists for this exact document."
+  ],
+  "dataClassification": "internal",
+  "containsPersonalData": false,
+  "containsCustomerConfidentialData": false,
+  "llmProcessingAllowed": false,
+  "retentionPolicy": "project_local_until_deleted",
+  "domainContext": "general_b2b",
+  "sensitiveDomainFlags": [],
+  "expertReviewRequired": false,
+  "expertReviewStatus": "not_required",
+  "blockedClaimTypes": [],
+  "publishReadiness": "not_assessed"
+}

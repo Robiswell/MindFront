@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "registryId": "mindfront-evidence-sources",
+  "version": "0.1.0",
+  "status": "phase_0_seed",
+  "sourceDocuments": [
+    "docs/ethical-boundaries.md",
+    "docs/evidence-policy.md"
+  ],
+  "enums": {
+    "sourceType": [
+      "user_provided_internal",
+      "user_provided_external",
+      "public_web_source",
+      "project_plan",
+      "internal_research",
+      "structured_metric",
+      "expert_review_record",
+      "local_validation_result",
+      "small_user_test_result",
+      "real_user_data",
+      "synthetic_reader_stress_test"
+    ],
+    "supportTier": [
+      "unsupported",
+      "unverified_user_provided",
+      "source_evidence",
+      "heuristic_reference",
+      "local_validation",
+      "small_user_test",
+      "real_user_data",
+      "expert_review"
+    ],
+    "allowedUse": [
+      "claim_support_candidate",
+      "research_context",
+      "principle_support",
+      "rubric_support",
+      "config_policy",
+      "expert_review_support",
+      "local_validation_support",
+      "real_user_validation",
+      "blocked_claim_resolution"
+    ],
+    "excerptPolicy": [
+      "short_excerpt_only",
+      "no_raw_quotes",
+      "reference_only",
+      "redacted_summary_only",
+      "full_record_allowed_local_only"
+    ],
+    "status": [
+      "active",
+      "inactive",
+      "deprecated",
+      "blocked"
+    ]
+  },
+  "defaultEvidenceHandling": {
+    "freeTextProofEvidenceBasis": "user_provided_unverified",
+    "freeTextProofSupportTier": "unverified_user_provided",
+    "llmProcessingAllowedDefault": false,
+    "sensitiveDataAllowedDefault": false,
+    "minimumFieldsForClaimSupport": [
+      "sourceId",
+      "method",
+      "sample",
+      "limitations"
+    ]
+  },
+  "sources": [
+    {
+      "sourceId": "source-001",
+      "label": "Internal pilot interview notes",
+      "sourceType": "user_provided_internal",
+      "supportTier": "unverified_user_provided",
+      "allowedUses": [
+        "claim_support_candidate",
+        "research_context"
+      ],
+      "llmProcessingAllowed": false,
+      "retentionDays": 30,
+      "excerptPolicy": "short_excerpt_only",
+      "sensitiveDataAllowed": false,
+      "owner": "Maintainer",
+      "reviewedAt": "2026-05-09",
+      "status": "active",
+      "limitations": [
+        "No sample details supplied",
+        "Cannot support validated market preference claims until method, sample, and limitations are recorded"
+      ]
+    },
+    {
+      "sourceId": "source-002",
+      "label": "Mindfront Phase 0 hardening documents",
+      "sourceType": "project_plan",
+      "supportTier": "heuristic_reference",
+      "allowedUses": [
+        "principle_support",
+        "rubric_support",
+        "config_policy",
+        "research_context"
+      ],
+      "llmProcessingAllowed": false,
+      "retentionDays": 3650,
+      "excerptPolicy": "reference_only",
+      "sensitiveDataAllowed": false,
+      "owner": "Maintainer",
+      "reviewedAt": "2026-05-09",
+      "status": "active",
+      "limitations": [
+        "Planning source, not user validation",
+        "May define policies, schemas, and heuristic analysis rules",
+        "Must not be used to claim that users prefer, understand, or will convert"
+      ]
+    },
+    {
+      "sourceId": "source-003",
+      "label": "specialist documentation gravity plan",
+      "sourceType": "project_plan",
+      "supportTier": "heuristic_reference",
+      "allowedUses": [
+        "principle_support",
+        "rubric_support",
+        "config_policy",
+        "research_context"
+      ],
+      "llmProcessingAllowed": false,
+      "retentionDays": 3650,
+      "excerptPolicy": "reference_only",
+      "sensitiveDataAllowed": false,
+      "owner": "Maintainer",
+      "reviewedAt": "2026-06-01",
+      "status": "active",
+      "limitations": [
+        "Project planning source, not employee research",
+        "May define documentation-quality heuristics and Codex workflow policy",
+        "Must not be used to claim that employees prefer, understand, adopt, or perform better because of a document"
+      ]
+    }
+  ],
+  "evidenceRecordTemplate": {
+    "requiredFields": [
+      "evidenceId",
+      "sourceId",
+      "evidenceType",
+      "method",
+      "sample",
+      "summary",
+      "limitations",
+      "capturedAt",
+      "evidenceBasis"
+    ],
+    "idPattern": "^evidence-[a-z0-9][a-z0-9-]*$",
+    "mustReferenceActiveSource": true,
+    "mustDeclareExactContextForRealUserData": true
+  },
+  "validationRules": [
+    {
+      "ruleId": "evidence-source-rule-001",
+      "severity": "error",
+      "condition": "sourceId does not match ^source-[0-9]{3}$",
+      "message": "Source ids must use the source-001 pattern."
+    },
+    {
+      "ruleId": "evidence-source-rule-002",
+      "severity": "error",
+      "condition": "source.supportTier == real_user_data AND source.sourceType != real_user_data",
+      "message": "Real user data support requires a real_user_data source type."
+    },
+    {
+      "ruleId": "evidence-source-rule-003",
+      "severity": "error",
+      "condition": "source.sensitiveDataAllowed == true AND source.llmProcessingAllowed == true",
+      "message": "Sensitive data sources cannot allow external LLM processing by default."
+    },
+    {
+      "ruleId": "evidence-source-rule-004",
+      "severity": "error",
+      "condition": "source.allowedUses includes claim_support_candidate AND source.limitations is empty",
+      "message": "Claim-support candidate sources must record limitations."
+    },
+    {
+      "ruleId": "evidence-source-rule-005",
+      "severity": "warning",
+      "condition": "source.allowedUses includes claim_support_candidate AND source.supportTier == unverified_user_provided",
+      "message": "Unverified user-provided sources can only create support candidates, not validated claims."
+    }
+  ]
+}

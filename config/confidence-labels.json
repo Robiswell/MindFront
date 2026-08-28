@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "registryId": "mindfront-confidence-labels",
+  "version": "0.1.0",
+  "status": "phase_0_canonical",
+  "sourceDocuments": [
+    "docs/ethical-boundaries.md",
+    "docs/evidence-policy.md"
+  ],
+  "concepts": {
+    "evidenceBasis": [
+      {
+        "id": "unsupported",
+        "rank": 0,
+        "definition": "No supplied source, method, sample, or observable basis supports the claim or recommendation.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "user_provided_unverified",
+        "rank": 1,
+        "definition": "The user supplied a proof note or assertion, but method, sample, source, and limitations are not all recorded.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "source_evidence",
+        "rank": 2,
+        "definition": "A registered source or evidence record supports the point within its stated limitations.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "heuristic_inference",
+        "rank": 3,
+        "definition": "A structured inference from configured principles, rubric anchors, or observable text properties.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "synthetic_reader_stress_test",
+        "rank": 4,
+        "definition": "Simulated reader feedback from configured audience lenses; this is not market evidence or user research.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "synthetic_task_fixture",
+        "rank": 4,
+        "definition": "Synthetic documentation-task observations used to verify workflow behavior; this is not user evidence, market evidence, or performance proof.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "local_validation",
+        "rank": 5,
+        "definition": "A local deterministic or manual validation result has been recorded for the exact artifact.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "small_user_test",
+        "rank": 6,
+        "definition": "A small, documented target-user test supports the point directionally within its sample limits.",
+        "maySupportPublishReadiness": false
+      },
+      {
+        "id": "real_user_data",
+        "rank": 7,
+        "definition": "Mapped real-user evidence supports the exact claim, audience, channel, and context.",
+        "maySupportPublishReadiness": true
+      },
+      {
+        "id": "expert_review",
+        "rank": 8,
+        "definition": "A documented qualified expert review applies to the exact sensitive-domain or compliance question.",
+        "maySupportPublishReadiness": true
+      }
+    ],
+    "findingConfidence": [
+      {
+        "id": "low",
+        "rank": 1,
+        "definition": "The issue is plausible but weakly supported, subjective, or dependent on missing context."
+      },
+      {
+        "id": "medium",
+        "rank": 2,
+        "definition": "The issue is reasonably supported by the brief, rubric, or source evidence but needs validation before action."
+      },
+      {
+        "id": "high_observable_text_issue",
+        "rank": 3,
+        "definition": "The issue is directly observable in the text, such as missing CTA, long sentence, superlative, or quantified claim."
+      },
+      {
+        "id": "high_source_supported",
+        "rank": 4,
+        "definition": "The issue is supported by a registered source or evidence record that applies to this context."
+      },
+      {
+        "id": "blocked_sensitive_domain",
+        "rank": 0,
+        "definition": "The artifact touches a restricted domain or purpose and cannot be treated as ready until the required review is recorded."
+      }
+    ],
+    "recommendationState": [
+      {
+        "id": "blocked_unsupported",
+        "definition": "The recommendation depends on unsupported claims or proof and must not be treated as publish-ready."
+      },
+      {
+        "id": "blocked_sensitive_domain",
+        "definition": "The recommendation touches a disallowed or restricted purpose and is blocked until the ethical or expert-review gate clears."
+      },
+      {
+        "id": "needs_domain_evidence",
+        "definition": "The recommendation needs domain-specific evidence before it can move forward."
+      },
+      {
+        "id": "needs_user_research",
+        "definition": "The recommendation is a hypothesis that must be checked with target users."
+      },
+      {
+        "id": "needs_expert_review",
+        "definition": "The recommendation touches a restricted domain where copy quality is not enough to determine safety or compliance."
+      },
+      {
+        "id": "hypothesis_to_test",
+        "definition": "The recommendation is grounded enough to test but not validated."
+      },
+      {
+        "id": "ready_for_small_test",
+        "definition": "The recommendation is suitable for a small, explicit validation test in the exact target context."
+      },
+      {
+        "id": "locally_checked",
+        "definition": "The recommendation passed local deterministic or manual validation but still is not market proof."
+      },
+      {
+        "id": "small_user_test_supported",
+        "definition": "The recommendation is directionally supported by a documented small user test."
+      },
+      {
+        "id": "validated_for_exact_context",
+        "definition": "The recommendation is supported by mapped real-user data or expert review for the exact claim, audience, channel, and context."
+      }
+    ]
+  },
+  "validationRules": [
+    {
+      "ruleId": "confidence-rule-001",
+      "severity": "error",
+      "condition": "evidenceBasis == synthetic_reader_stress_test AND recommendationState == validated_for_exact_context",
+      "message": "Synthetic reader stress tests cannot produce validated_for_exact_context."
+    },
+    {
+      "ruleId": "confidence-rule-002",
+      "severity": "error",
+      "condition": "sensitiveDomainFlags is not empty AND expertReviewStatus != completed AND recommendationState not in [blocked_sensitive_domain, needs_expert_review]",
+      "message": "Sensitive domains cannot exceed needs_expert_review until expert review is recorded."
+    },
+    {
+      "ruleId": "confidence-rule-003",
+      "severity": "error",
+      "condition": "proofAvailable is free text AND evidence record lacks method, sample, sourceId, or limitations AND evidenceBasis != user_provided_unverified",
+      "message": "Free-text proof without method, sample, source, and limitations must default to user_provided_unverified."
+    },
+    {
+      "ruleId": "confidence-rule-004",
+      "severity": "error",
+      "condition": "findingConfidence == high_observable_text_issue AND observableTextProperty == false",
+      "message": "Deterministic high confidence is allowed only for observable text properties."
+    },
+    {
+      "ruleId": "confidence-rule-005",
+      "severity": "error",
+      "condition": "evidenceBasis == real_user_data AND exactClaimAudienceChannelContextMapped != true",
+      "message": "Real user data applies only to the exact mapped claim, audience, channel, and context."
+    },
+    {
+      "ruleId": "confidence-rule-006",
+      "severity": "error",
+      "condition": "recommendationState == validated_for_exact_context AND evidenceBasis not in [real_user_data, expert_review]",
+      "message": "Validated recommendations require real-user data or applicable expert review."
+    },
+    {
+      "ruleId": "confidence-rule-007",
+      "severity": "error",
+      "condition": "evidenceBasis == unsupported AND recommendationState not in [blocked_unsupported, needs_domain_evidence, needs_user_research, hypothesis_to_test]",
+      "message": "Unsupported evidence cannot create a ready, locally checked, user-supported, or validated recommendation."
+    },
+    {
+      "ruleId": "confidence-rule-008",
+      "severity": "warning",
+      "condition": "deprecated alias appears in an output record before Phase 1",
+      "message": "Deprecated confidence aliases are tolerated only during Phase 0 migration."
+    },
+    {
+      "ruleId": "confidence-rule-009",
+      "severity": "error",
+      "condition": "deprecated alias appears in an output record after Phase 1",
+      "message": "Deprecated aliases must fail validation after Phase 1."
+    }
+  ],
+  "deprecatedAliases": [
+    {
+      "alias": "heuristic_high_confidence",
+      "replacement": {
+        "evidenceBasis": "heuristic_inference",
+        "findingConfidence": "high_observable_text_issue"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "psychology_supported_hypothesis",
+      "replacement": {
+        "evidenceBasis": "heuristic_inference",
+        "recommendationState": "hypothesis_to_test"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "requires_user_research",
+      "replacement": {
+        "recommendationState": "needs_user_research"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "requires_domain_evidence",
+      "replacement": {
+        "recommendationState": "needs_domain_evidence"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "unsupported_overclaim",
+      "replacement": {
+        "evidenceBasis": "unsupported",
+        "recommendationState": "blocked_unsupported"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "validated_by_real_data",
+      "replacement": {
+        "evidenceBasis": "real_user_data",
+        "recommendationState": "validated_for_exact_context"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "unsupported",
+      "replacement": {
+        "evidenceBasis": "unsupported",
+        "recommendationState": "blocked_unsupported"
+      },
+      "failValidationAfterPhase": 1,
+      "note": "The raw word remains valid only as an evidenceBasis value, not as an overloaded confidence label."
+    },
+    {
+      "alias": "heuristic_hypothesis",
+      "replacement": {
+        "evidenceBasis": "heuristic_inference",
+        "recommendationState": "hypothesis_to_test"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "provided_evidence",
+      "replacement": {
+        "evidenceBasis": "user_provided_unverified"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "synthetic_panel_hypothesis",
+      "replacement": {
+        "evidenceBasis": "synthetic_reader_stress_test",
+        "recommendationState": "hypothesis_to_test"
+      },
+      "failValidationAfterPhase": 1
+    },
+    {
+      "alias": "requires_expert_review",
+      "replacement": {
+        "recommendationState": "needs_expert_review"
+      },
+      "failValidationAfterPhase": 1
+    }
+  ]
+}

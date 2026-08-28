@@ -1,0 +1,78 @@
+{
+  "artifactType": "workplace_assistance_request",
+  "schemaVersion": 1,
+  "requestId": "assist-request-synthetic-career-review",
+  "mode": "career_review",
+  "createdAt": "2026-07-25T15:15:00+00:00",
+  "purpose": "self_workplace_communication_assistance",
+  "situation": {
+    "context": "career_conversation",
+    "summary": "Review synthetic evidence for a larger internal AI enablement scope.",
+    "channel": "meeting",
+    "audience": "technology leadership",
+    "desiredOutcome": "Identify confirmed evidence and the next missing decision-right or conversion proof."
+  },
+  "facts": [
+    {
+      "factId": "fact-career-nomination-01",
+      "statement": "A technology leader documented the nomination for a larger coordination scope pending confirmation.",
+      "status": "explicit_fact",
+      "sourceType": "documented_record",
+      "category": "authority_evidence",
+      "sourceReference": "Synthetic nomination note D"
+    }
+  ],
+  "asks": [],
+  "authority": {
+    "state": "nominated_pending_confirmation",
+    "deliveryOwner": "the solution coordinator",
+    "domainOwners": [],
+    "finalApprovalOwner": "the technology executive",
+    "evidenceState": "stakeholder_confirmed",
+    "evidenceFactIds": [
+      "fact-career-nomination-01"
+    ]
+  },
+  "contributors": [],
+  "decisions": [],
+  "commitments": [],
+  "unresolvedItems": [],
+  "careerEvidence": [
+    {
+      "evidenceId": "evidence-measurable-result-01",
+      "category": "measurable_result",
+      "statement": "Closed 84 synthetic support items during a focused service week.",
+      "evidenceState": "source_supported",
+      "occurredAt": "2026-06-15",
+      "metric": "84 completed items",
+      "proofReference": "Synthetic service report A"
+    },
+    {
+      "evidenceId": "evidence-delegated-scope-01",
+      "category": "delegated_scope",
+      "statement": "A technology leader delegated coordination of the AI pilot.",
+      "evidenceState": "stakeholder_confirmed",
+      "occurredAt": "2026-07-01",
+      "authorityScope": "coordinate the AI pilot",
+      "proofReference": "Synthetic delegation note B"
+    },
+    {
+      "evidenceId": "evidence-conversion-signal-01",
+      "category": "title_or_conversion_signal",
+      "statement": "A leader expressed support for a future full-time role.",
+      "evidenceState": "stakeholder_confirmed",
+      "occurredAt": "2026-07-10",
+      "proofReference": "Synthetic career discussion C"
+    }
+  ],
+  "energyState": "steady",
+  "requestedActions": [
+    "review_career_evidence"
+  ],
+  "authorization": {
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "humanReviewRequired": true,
+    "profileBelongsToCurrentUser": true
+  }
+}

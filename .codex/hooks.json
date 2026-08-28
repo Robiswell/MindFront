@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\.codex\\hooks\\mindfront-prompt.ps1",
+            "timeout": 10,
+            "statusMessage": "Checking Mindfront workflow"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\.codex\\hooks\\mindfront-stop.ps1",
+            "timeout": 10,
+            "statusMessage": "Verifying Mindfront workflow"
+          }
+        ]
+      }
+    ]
+  }
+}

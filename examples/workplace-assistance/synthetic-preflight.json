@@ -1,0 +1,79 @@
+{
+  "artifactType": "workplace_assistance_request",
+  "schemaVersion": 1,
+  "requestId": "assist-request-synthetic-preflight",
+  "mode": "preflight",
+  "createdAt": "2026-07-25T15:00:00+00:00",
+  "purpose": "self_workplace_communication_assistance",
+  "situation": {
+    "context": "stakeholder_alignment",
+    "summary": "Prepare a short ownership and approval update for an internal AI pilot.",
+    "channel": "meeting",
+    "audience": "cross-functional technology leaders",
+    "desiredOutcome": "Confirm the pilot scope, workstream owners, and approval path."
+  },
+  "facts": [
+    {
+      "factId": "fact-pilot-direction-01",
+      "statement": "The technology director approved the pilot workstream structure.",
+      "status": "explicit_fact",
+      "sourceType": "documented_record",
+      "category": "authority_evidence",
+      "sourceReference": "Synthetic approval note A"
+    },
+    {
+      "factId": "fact-security-partner-01",
+      "statement": "The security specialist accepted ownership of security research and validation.",
+      "status": "explicit_fact",
+      "sourceType": "direct_quote",
+      "category": "commitment",
+      "sourceReference": "Synthetic meeting note B"
+    }
+  ],
+  "draftText": "The solution coordinator coordinates the AI architecture and integration. The security specialist owns security research and validation. Final approval remains with the technology director.",
+  "intendedAsk": "Can we confirm this ownership model and approve the next pilot milestone?",
+  "asks": [
+    "Confirm the ownership model and approve the next pilot milestone."
+  ],
+  "recommendation": "Use one accountable delivery coordinator with distributed specialist ownership.",
+  "authority": {
+    "state": "peer_partnership",
+    "deliveryOwner": "the solution coordinator",
+    "domainOwners": [
+      {
+        "domain": "security research and validation",
+        "ownerRole": "the security specialist",
+        "ownershipType": "owns_workstream"
+      }
+    ],
+    "finalApprovalOwner": "the technology director",
+    "evidenceState": "stakeholder_confirmed",
+    "evidenceFactIds": [
+      "fact-pilot-direction-01"
+    ]
+  },
+  "contributors": [
+    {
+      "contributorId": "contributor-security-specialist-01",
+      "role": "the security specialist",
+      "contribution": "security research and validation",
+      "creditIncluded": true,
+      "ownershipType": "owns_workstream"
+    }
+  ],
+  "decisions": [],
+  "commitments": [],
+  "unresolvedItems": [],
+  "careerEvidence": [],
+  "energyState": "steady",
+  "requestedActions": [
+    "prepare_talking_points",
+    "flag_risks"
+  ],
+  "authorization": {
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "humanReviewRequired": true,
+    "profileBelongsToCurrentUser": true
+  }
+}

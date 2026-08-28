@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Mindfront</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Mindfront home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Mindfront</span>
+      </a>
+      <div class="local-status" id="local-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Private and local</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Workplace communication support</p>
+        <h1>What do you need help with?</h1>
+        <p>Choose one, paste the situation, and Mindfront will help you decide what to say or do next.</p>
+      </section>
+
+      <nav class="tabs" aria-label="Mindfront tools">
+        <button class="tab is-active" type="button" data-tab="assist">Help me communicate</button>
+        <button class="tab" type="button" data-tab="audit">Review a message or document</button>
+      </nav>
+
+      <section class="panel is-active" id="assist-panel" data-panel="assist">
+        <div class="mode-picker" role="radiogroup" aria-label="Type of help">
+          <button class="mode is-selected" type="button" data-mode="preflight" role="radio" aria-checked="true">
+            <span class="mode-icon" aria-hidden="true">P</span>
+            <span><strong>Prepare</strong><small>Plan what to say</small></span>
+          </button>
+          <button class="mode" type="button" data-mode="interpret" role="radio" aria-checked="false">
+            <span class="mode-icon" aria-hidden="true">?</span>
+            <span><strong>Understand</strong><small>Interpret a message</small></span>
+          </button>
+          <button class="mode" type="button" data-mode="debrief" role="radio" aria-checked="false">
+            <span class="mode-icon" aria-hidden="true">D</span>
+            <span><strong>Debrief</strong><small>Review what happened</small></span>
+          </button>
+          <button class="mode" type="button" data-mode="career_review" role="radio" aria-checked="false">
+            <span class="mode-icon" aria-hidden="true">C</span>
+            <span><strong>Career evidence</strong><small>Assess your own impact</small></span>
+          </button>
+        </div>
+
+        <form class="work-card" id="assist-form">
+          <input type="hidden" name="mode" id="assist-mode" value="preflight">
+          <label class="main-field" for="assist-text">
+            <span id="assist-label">Paste your draft or describe the conversation</span>
+            <textarea id="assist-text" name="primaryText" rows="9" maxlength="30000" required
+              placeholder="You can write naturally. Include names, exact wording, or rough notes if they matter."></textarea>
+          </label>
+
+          <label class="field" for="assist-goal">
+            <span>What outcome do you want? <em>Optional</em></span>
+            <input id="assist-goal" name="desiredOutcome" maxlength="2000"
+              placeholder="Example: Get a clear decision without sounding pushy">
+          </label>
+
+          <details class="advanced">
+            <summary>More context <span>Optional</span></summary>
+            <div class="advanced-grid">
+              <label class="field">
+                <span>Audience</span>
+                <input name="audience" maxlength="2000" placeholder="Manager, teammate, senior leaders...">
+              </label>
+              <label class="field">
+                <span>Where this is happening</span>
+                <select name="channel">
+                  <option value="meeting">Meeting</option>
+                  <option value="teams_chat">Teams chat</option>
+                  <option value="email">Email</option>
+                  <option value="presentation">Presentation</option>
+                  <option value="document">Document</option>
+                  <option value="informal">Informal conversation</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Your energy</span>
+                <select name="energyState">
+                  <option value="steady">Steady</option>
+                  <option value="rushed">Rushed</option>
+                  <option value="fatigued">Fatigued</option>
+                  <option value="overloaded">Overloaded</option>
+                  <option value="unknown">Unsure</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Your authority</span>
+                <select name="authorityState" id="authority-state">
+                  <option value="unknown">Unsure or not relevant</option>
+                  <option value="self_initiated">I initiated this</option>
+                  <option value="nominated_pending_confirmation">Discussed, not confirmed</option>
+                  <option value="peer_partnership">Confirmed partnership</option>
+                  <option value="formally_assigned">Formally assigned</option>
+                  <option value="explicitly_delegated">Explicitly delegated</option>
+                  <option value="sponsor_approved_workstream">Sponsor-approved workstream</option>
+                </select>
+              </label>
+              <label class="field field-wide">
+                <span>Authority evidence <em>Required only for confirmed authority</em></span>
+                <textarea name="authorityEvidence" rows="2" maxlength="5000"
+                  placeholder="What exactly was assigned, approved, or agreed?"></textarea>
+              </label>
+              <label class="field field-wide">
+                <span>Where that evidence can be checked</span>
+                <input name="authoritySource" maxlength="1000"
+                  placeholder="Example: Teams message from Bill on July 25">
+              </label>
+              <div class="career-options field-wide" id="career-options" hidden>
+                <label class="field">
+                  <span>Evidence type</span>
+                  <select name="careerCategory">
+                    <option value="measurable_result">Measurable result</option>
+                    <option value="adoption_or_reuse">Adoption or reuse</option>
+                    <option value="delegated_scope">Delegated scope</option>
+                    <option value="cross_functional_ownership">Cross-functional ownership</option>
+                    <option value="executive_exposure">Executive exposure</option>
+                    <option value="sponsor_confirmation">Sponsor confirmation</option>
+                    <option value="teammate_enablement">Teammate enablement</option>
+                    <option value="decision_right">Decision right</option>
+                    <option value="title_or_conversion_signal">Title or conversion signal</option>
+                    <option value="credential_or_learning_evidence">Credential or learning</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Proof reference</span>
+                  <input name="careerProof" maxlength="2000" placeholder="Optional email, message, metric, or artifact">
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <div class="action-row">
+            <p>Nothing is sent or posted. You decide what to use.</p>
+            <button class="primary" id="assist-submit" type="submit">
+              <span>Help me</span><span aria-hidden="true">-&gt;</span>
+            </button>
+          </div>
+        </form>
+
+        <section class="result" id="assist-result" aria-live="polite" hidden></section>
+      </section>
+
+      <section class="panel" id="audit-panel" data-panel="audit">
+        <form class="work-card" id="audit-form">
+          <label class="main-field" for="audit-text">
+            <span>Paste the message or document</span>
+            <textarea id="audit-text" name="primaryText" rows="12" maxlength="30000" required
+              placeholder="Paste the content you want reviewed for clarity, credibility, and actionability."></textarea>
+          </label>
+          <div class="two-column">
+            <label class="field">
+              <span>What should it accomplish? <em>Optional</em></span>
+              <input name="messageGoal" maxlength="2000" placeholder="Example: Get approval for the next phase">
+            </label>
+            <label class="field">
+              <span>Who is it for? <em>Optional</em></span>
+              <input name="targetAudience" maxlength="2000" placeholder="Example: IT leadership">
+            </label>
+          </div>
+
+          <details class="advanced">
+            <summary>More context <span>Optional</span></summary>
+            <div class="advanced-grid">
+              <label class="field">
+                <span>Format</span>
+                <select name="artifactChannel">
+                  <option value="document">Document</option>
+                  <option value="email">Email</option>
+                  <option value="teams_chat">Teams chat</option>
+                  <option value="meeting_follow_up">Meeting follow-up</option>
+                  <option value="presentation">Presentation</option>
+                  <option value="sales_narrative">Sales narrative</option>
+                  <option value="landing_page">Landing page</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Intent</span>
+                <select name="communicationIntent">
+                  <option value="inform">Inform</option>
+                  <option value="recommend">Recommend</option>
+                  <option value="request_decision">Request a decision</option>
+                  <option value="persuade">Persuade</option>
+                  <option value="enable_task">Enable a task</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Data sensitivity</span>
+                <select name="dataClassification">
+                  <option value="internal">Internal</option>
+                  <option value="public">Public</option>
+                  <option value="confidential">Confidential</option>
+                  <option value="sensitive">Sensitive</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Document type</span>
+                <select name="documentArchetype">
+                  <option value="internal_operational_brief">Operational brief</option>
+                  <option value="internal_executive_digest">Executive digest</option>
+                  <option value="product_message">Product message</option>
+                  <option value="sales_narrative">Sales narrative</option>
+                  <option value="landing_page">Landing page</option>
+                </select>
+              </label>
+              <label class="field field-wide">
+                <span>Evidence available <em>One item per line</em></span>
+                <textarea name="proofAvailable" rows="2" maxlength="15000"></textarea>
+              </label>
+              <label class="check">
+                <input id="audit-personal" name="containsPersonalData" type="checkbox">
+                <span>Contains personal data</span>
+              </label>
+              <label class="check">
+                <input id="audit-confidential" name="containsCustomerConfidentialData" type="checkbox">
+                <span>Contains customer-confidential data</span>
+              </label>
+            </div>
+          </details>
+
+          <div class="action-row">
+            <p>This is a heuristic review, not proof of how every reader will respond.</p>
+            <button class="primary" id="audit-submit" type="submit">
+              <span>Review it</span><span aria-hidden="true">-&gt;</span>
+            </button>
+          </div>
+        </form>
+
+        <section class="result" id="audit-result" aria-live="polite" hidden></section>
+      </section>
+
+      <aside class="boundary-note">
+        <strong>Built for private support.</strong>
+        Mindfront separates facts from possible interpretations, does not score coworkers, and never sends anything automatically.
+      </aside>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "registryId": "mindfront-message-quality-rubric",
+  "version": "0.1.0",
+  "status": "phase_0_seed",
+  "sourceDocuments": [
+    "docs/ethical-boundaries.md",
+    "docs/evidence-policy.md"
+  ],
+  "scoreScale": {
+    "id": "0_to_5",
+    "minimum": 0,
+    "maximum": 5,
+    "integerOnly": true,
+    "higherIsBetter": true,
+    "meaning": "Higher scores mean clearer, safer, better-supported message quality for the exact dimension."
+  },
+  "deferredDimensions": [
+    {
+      "dimensionId": "motivation",
+      "reason": "The initial implementation slice focuses on clarity, cognitive load, concreteness, trust/proof, and ethical risk. Motivation can be added after the first validator and deterministic analyzer are stable."
+    }
+  ],
+  "dimensions": [
+    {
+      "dimensionId": "clarity",
+      "label": "Clarity",
+      "scoreScale": "0_to_5",
+      "higherIsBetter": true,
+      "definition": "How quickly a reader can understand what the product or offer is, who it is for, what it does, and what action is expected.",
+      "principleIds": [
+        "processing-fluency",
+        "category-clarity"
+      ],
+      "deterministicSignals": [
+        "missing product category",
+        "missing target user",
+        "missing desired action",
+        "pronoun ambiguity",
+        "undefined acronym"
+      ],
+      "scoreAnchors": {
+        "0": "The copy is unintelligible or internally contradictory.",
+        "1": "Reader cannot tell what the product is, who it is for, or what it does.",
+        "2": "Reader can infer the general idea, but category, user, or outcome is unclear.",
+        "3": "Reader understands the basic offer but must work through vague or abstract language.",
+        "4": "Reader understands product, user, outcome, and next step quickly.",
+        "5": "Reader can summarize the offer accurately after one pass and identify why it matters."
+      },
+      "goldenExampleAnchors": {
+        "1": "It changes how teams get there.",
+        "3": "A workflow platform that helps teams improve operations with intelligent tools.",
+        "5": "Mindfront is a local message-audit toolkit that helps product teams turn rough product copy into a clearer claim/proof map and next user test."
+      }
+    },
+    {
+      "dimensionId": "cognitive_load",
+      "label": "Cognitive Load",
+      "scoreScale": "0_to_5",
+      "higherIsBetter": true,
+      "definition": "How much effort the reader must spend parsing sentence structure, abstraction, jargon, acronyms, and competing ideas.",
+      "principleIds": [
+        "processing-fluency",
+        "cognitive-load-limits"
+      ],
+      "deterministicSignals": [
+        "long sentence",
+        "stacked abstraction",
+        "multiple CTAs",
+        "acronym density",
+        "repeated phrase"
+      ],
+      "scoreAnchors": {
+        "0": "The copy is too dense or disorganized to parse reliably.",
+        "1": "The reader must decode many long, abstract, or jargon-heavy phrases before understanding the point.",
+        "2": "The main idea is present but hidden behind avoidable length, abstraction, or competing ideas.",
+        "3": "The copy is usable but includes some sentence, jargon, or structure friction.",
+        "4": "The copy is easy to scan and contains only necessary complexity.",
+        "5": "The copy is concise, logically ordered, and easy to restate without losing important caveats."
+      },
+      "goldenExampleAnchors": {
+        "1": "We operationalize cross-functional transformation by synergizing next-generation workflows across enterprise value streams.",
+        "3": "We help teams manage complex work with workflows, dashboards, and AI assistance.",
+        "5": "Use one local workflow to check the message, map unsupported claims, and plan the next user test."
+      }
+    },
+    {
+      "dimensionId": "concreteness",
+      "label": "Concreteness",
+      "scoreScale": "0_to_5",
+      "higherIsBetter": true,
+      "definition": "How specifically the copy names the object, action, audience, proof, and outcome without inventing details.",
+      "principleIds": [
+        "category-clarity",
+        "concreteness-and-specificity"
+      ],
+      "deterministicSignals": [
+        "abstract phrase",
+        "missing noun",
+        "generic transformation claim",
+        "vague outcome",
+        "unsupported example"
+      ],
+      "scoreAnchors": {
+        "0": "The copy is only abstract claims or slogans with no inspectable substance.",
+        "1": "The copy uses broad transformation language and does not name concrete actions, users, or outcomes.",
+        "2": "Some concrete elements appear, but the main value or proof remains vague.",
+        "3": "The copy names the basic offer and some actions but needs sharper examples or constraints.",
+        "4": "The copy uses specific nouns, actions, and outcomes that match the brief.",
+        "5": "The copy makes the offer inspectable through precise wording, grounded examples, and clear limits."
+      },
+      "goldenExampleAnchors": {
+        "1": "We unlock next-generation transformation.",
+        "3": "We help marketing teams improve product messaging before launch.",
+        "5": "The tool scans a landing-page draft for unclear category, unsupported claims, missing proof, and a weak next test."
+      }
+    },
+    {
+      "dimensionId": "trust_proof",
+      "label": "Trust And Proof",
+      "scoreScale": "0_to_5",
+      "higherIsBetter": true,
+      "definition": "How well claims, proof, caveats, and reader expectations align.",
+      "principleIds": [
+        "claim-proof-alignment",
+        "validation-before-certainty"
+      ],
+      "deterministicSignals": [
+        "superlative",
+        "guarantee",
+        "quantified claim",
+        "social proof claim",
+        "proof note without source"
+      ],
+      "scoreAnchors": {
+        "0": "Copy makes dangerous or deceptive claims.",
+        "1": "Copy relies on unsupported certainty, superlatives, or fake authority.",
+        "2": "Some claims may be true, but proof is missing or vague.",
+        "3": "Copy is mostly credible but needs stronger proof for material claims.",
+        "4": "Claims are specific, appropriately caveated, and mostly supported.",
+        "5": "Claims, proof, caveats, and reader expectations are tightly aligned."
+      },
+      "goldenExampleAnchors": {
+        "1": "Guaranteed to double every team's productivity in one week.",
+        "3": "Designed to help teams find unclear claims before user testing, with proof still needed for performance claims.",
+        "5": "In three internal dry runs, the validator caught unsupported quantified claims and blocked publish-ready status; broader user validation is still required."
+      }
+    },
+    {
+      "dimensionId": "ethical_risk",
+      "label": "Ethical Risk",
+      "scoreScale": "0_to_5",
+      "higherIsBetter": true,
+      "definition": "How safely the message preserves user agency, avoids manipulation, and handles sensitive domains or high-stakes claims.",
+      "principleIds": [
+        "user-agency-and-autonomy",
+        "problem-first-framing",
+        "sensitive-domain-gating"
+      ],
+      "deterministicSignals": [
+        "fake urgency",
+        "fake scarcity",
+        "fear pressure",
+        "shame pressure",
+        "protected trait targeting",
+        "sensitive domain claim"
+      ],
+      "scoreAnchors": {
+        "0": "Deceptive, coercive, or harmful.",
+        "1": "High manipulation risk.",
+        "2": "Uses pressure or fear without adequate proof.",
+        "3": "Mostly acceptable but has overclaim or pressure concerns.",
+        "4": "Ethical, clear, and appropriately caveated.",
+        "5": "Persuasive through truthful clarity, proof, and user benefit."
+      },
+      "goldenExampleAnchors": {
+        "1": "Only smart teams act now before they fall behind forever.",
+        "3": "The problem is real, but the copy leans on pressure before proof.",
+        "5": "The copy explains the problem, the available proof, the limits, and a low-pressure next step."
+      }
+    }
+  ],
+  "validationRules": [
+    {
+      "ruleId": "rubric-rule-001",
+      "severity": "error",
+      "condition": "score is not an integer between 0 and 5",
+      "message": "Scores must be integer values on the 0_to_5 scale."
+    },
+    {
+      "ruleId": "rubric-rule-002",
+      "severity": "error",
+      "condition": "dimension.scoreAnchors does not define 0, 1, 2, 3, 4, and 5",
+      "message": "Every rubric dimension must define all six score anchors."
+    },
+    {
+      "ruleId": "rubric-rule-003",
+      "severity": "error",
+      "condition": "score record lacks dimensionId, score, scoreReason, findingIds, or calibrationAnchor",
+      "message": "Score records must include dimension, score, reason, findings, and calibration anchor."
+    },
+    {
+      "ruleId": "rubric-rule-004",
+      "severity": "error",
+      "condition": "dimension.principleIds contains an unknown principle id",
+      "message": "Rubric dimensions must reference known psychology principle ids."
+    },
+    {
+      "ruleId": "rubric-rule-005",
+      "severity": "warning",
+      "condition": "dimension lacks goldenExampleAnchors for 1, 3, and 5",
+      "message": "Score calibration should include golden examples for low, middle, and high bands."
+    }
+  ]
+}

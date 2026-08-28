@@ -1,0 +1,195 @@
+{
+  "artifactType": "workplace_assistance_policy",
+  "schemaVersion": 1,
+  "purpose": "autistic_workplace_communication_accommodation",
+  "modes": [
+    "preflight",
+    "interpret",
+    "debrief",
+    "career_review"
+  ],
+  "scenarioContexts": [
+    "career_conversation",
+    "stakeholder_alignment",
+    "conflict_repair",
+    "escalation",
+    "executive_brief",
+    "credit_update",
+    "scope_negotiation",
+    "cross_functional_handoff"
+  ],
+  "authorityStates": {
+    "formally_assigned": {
+      "claimLevel": "confirmed_scope_ownership",
+      "recommendedVerb": "own"
+    },
+    "explicitly_delegated": {
+      "claimLevel": "delegated_scope_ownership",
+      "recommendedVerb": "lead"
+    },
+    "nominated_pending_confirmation": {
+      "claimLevel": "provisional_nomination",
+      "recommendedVerb": "nominated to coordinate"
+    },
+    "sponsor_approved_workstream": {
+      "claimLevel": "approved_workstream_ownership",
+      "recommendedVerb": "lead the approved workstream"
+    },
+    "peer_partnership": {
+      "claimLevel": "collaborative_delivery",
+      "recommendedVerb": "coordinate and partner"
+    },
+    "self_initiated": {
+      "claimLevel": "proposal_without_delegated_authority",
+      "recommendedVerb": "propose and coordinate"
+    },
+    "unknown": {
+      "claimLevel": "authority_not_confirmed",
+      "recommendedVerb": "propose"
+    }
+  },
+  "careerEvidenceCategories": [
+    "measurable_result",
+    "delegated_scope",
+    "decision_right",
+    "sponsor_confirmation",
+    "adoption_or_reuse",
+    "teammate_enablement",
+    "cross_functional_ownership",
+    "executive_exposure",
+    "title_or_conversion_signal",
+    "credential_or_learning_evidence"
+  ],
+  "evidenceStates": [
+    "user_asserted",
+    "source_supported",
+    "stakeholder_confirmed",
+    "formally_decided"
+  ],
+  "languageGates": [
+    {
+      "gateId": "motive_attribution",
+      "label": "Motive attribution",
+      "severity": "review",
+      "patterns": [
+        "\\b(?:just|only) trying to\\b",
+        "\\btrying to (?:look good|make (?:himself|herself|themselves) look good)\\b",
+        "\\bdoing this (?:only|just) because\\b"
+      ],
+      "explanation": "The wording assigns an internal motive that the available facts cannot establish.",
+      "recommendedAdjustment": "Describe the observable action and its effect, then ask a neutral clarifying question if intent matters."
+    },
+    {
+      "gateId": "monopoly_language",
+      "label": "Monopoly or sole-source framing",
+      "severity": "review",
+      "patterns": [
+        "\\bonly i can\\b",
+        "\\b(?:nobody|no one) else can\\b",
+        "\\bsole source\\b",
+        "\\bthere is no room for (?:another|more than one)\\b"
+      ],
+      "explanation": "The wording frames value as dependence on one person rather than accountable, repeatable organizational capability.",
+      "recommendedAdjustment": "Claim a single point of accountability while naming distributed domain ownership, documentation, and teammate enablement."
+    },
+    {
+      "gateId": "territorial_language",
+      "label": "Territorial framing",
+      "severity": "review",
+      "patterns": [
+        "\\bgo through me\\b",
+        "\\bmy turf\\b",
+        "\\bstay out of\\b",
+        "\\bpolitical reasons\\b"
+      ],
+      "explanation": "The wording may sound like gatekeeping or control of access.",
+      "recommendedAdjustment": "Describe the coordination path, decision boundary, and reason it reduces duplication or risk."
+    },
+    {
+      "gateId": "disparagement",
+      "label": "Dismissive or disparaging language",
+      "severity": "review",
+      "patterns": [
+        "\\bnobody worth\\b",
+        "\\bhot mess\\b",
+        "\\bincompetent\\b",
+        "\\bclueless\\b",
+        "\\bdoesn'?t understand anything\\b"
+      ],
+      "explanation": "The wording evaluates a person instead of describing a specific work product, gap, or risk.",
+      "recommendedAdjustment": "Name the observable gap, its impact, and the requested correction without labeling the person."
+    },
+    {
+      "gateId": "comparative_superiority",
+      "label": "Comparative superiority",
+      "severity": "review",
+      "patterns": [
+        "\\b(?:better|smarter|more capable) than\\b",
+        "\\b(?:nobody|no one) else can (?:do|handle|lead|own) (?:this|it|the work)\\b",
+        "\\bi did [0-9]+[^.]{0,80}\\b(?:they|he|she) (?:only )?did [0-9]+\\b"
+      ],
+      "explanation": "The wording may make a valid achievement sound like a status comparison or bid to diminish someone else.",
+      "recommendedAdjustment": "State the sourced result, business effect, and repeatable method without evaluating another person's competence."
+    },
+    {
+      "gateId": "condescension_risk",
+      "label": "Condescension risk",
+      "severity": "review",
+      "patterns": [
+        "\\byou should already know\\b",
+        "\\bthis is (?:obvious|simple|easy)\\b",
+        "\\bas i already (?:said|explained|told you)\\b",
+        "\\bclearly,? you (?:do not|don'?t|did not|didn'?t) understand\\b"
+      ],
+      "explanation": "The wording may turn a valid correction into a judgment about the other person's understanding.",
+      "recommendedAdjustment": "State the missing fact or correction directly, explain its effect, and offer the smallest useful next step."
+    },
+    {
+      "gateId": "compliance_certainty",
+      "label": "Compliance certainty",
+      "severity": "review",
+      "patterns": [
+        "\\billegal\\b",
+        "\\bout of compliance\\b",
+        "\\blegal requirement\\b",
+        "\\bmust comply\\b"
+      ],
+      "explanation": "A legal or compliance conclusion needs an inspectable source and the appropriate control or approval owner.",
+      "recommendedAdjustment": "State the observed requirement or risk, cite the current source, and route the conclusion to the responsible reviewer."
+    },
+    {
+      "gateId": "personnel_sensitivity",
+      "label": "Personnel sensitivity",
+      "severity": "review",
+      "patterns": [
+        "\\b(?:hiring|firing|promotion|compensation|salary|candidate ranking|performance rating)\\b",
+        "\\bi heard (?:he|she|they) (?:is|are|was|were)\\b",
+        "\\bapparently (?:he|she|they)\\b"
+      ],
+      "explanation": "The wording touches personnel decisions, rumors, or evaluation and requires extra care.",
+      "recommendedAdjustment": "Keep the assistance focused on the user's own evidence and scope; omit rumors and do not evaluate another person."
+    }
+  ],
+  "thresholds": {
+    "maxAsksBeforeStacking": 2,
+    "maxExactAskWords": 35,
+    "maxExecutiveDraftWords": 140,
+    "maxShortVersionWords": 55
+  },
+  "hardBlockedActions": [
+    "auto_post",
+    "auto_send",
+    "diagnose_coworker",
+    "evaluate_coworker",
+    "impersonate",
+    "infer_motive_as_fact",
+    "predict_promotion",
+    "rank_coworkers"
+  ],
+  "requiredBoundaries": {
+    "humanReviewRequired": true,
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "promotionPredictionCreated": false
+  }
+}

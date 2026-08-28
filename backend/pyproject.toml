@@ -1,0 +1,9 @@
+[project]
+name = "mindfront"
+version = "0.1.0"
+description = "Local-first workplace communication and message review toolkit."
+requires-python = ">=3.11"
+dependencies = ["PyYAML==6.0.3", "cryptography==49.0.0", "pypdf>=5.0,<7"]
+
+[tool.mindfront]
+package = "mindfront"

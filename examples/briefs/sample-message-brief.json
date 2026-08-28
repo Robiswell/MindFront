@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "briefId": "brief-mindfront-sample-message",
+  "artifactType": "message_brief",
+  "createdAt": "2026-05-09",
+  "projectName": "Mindfront Sample Message",
+  "messageGoal": "Help a busy business user understand when to use a message-intelligence workflow before formal research is available.",
+  "targetAudience": "Product, marketing, sales enablement, or technical solutions lead preparing an early product message",
+  "audienceFamiliarity": "medium",
+  "channel": "landing_page",
+  "desiredAction": "request_demo",
+  "sourceText": "Mindfront helps teams turn rough product explanations into clearer, safer business messaging before formal market research is available. It flags confusing language, unsupported claims, and risky proof gaps, then suggests a plain-English revision and a practical validation step.",
+  "proofAvailable": [
+    {
+      "type": "user_provided_unverified",
+      "label": "Internal workflow observation",
+      "summary": "A product marketer said the current draft is hard to explain to sales without extra context."
+    },
+    {
+      "type": "user_provided_unverified",
+      "label": "Current planning constraint",
+      "summary": "The team does not yet have interview findings, conversion data, or an approved research study."
+    }
+  ],
+  "constraints": [
+    "Do not claim real user validation.",
+    "Do not imply medical, legal, financial, employment, housing, insurance, educational, security, crisis, political, civic, or public-benefits advice.",
+    "Keep language suitable for a general business audience.",
+    "Preserve user agency and avoid fear, shame, status anxiety, or urgency pressure."
+  ],
+  "unknowns": [
+    "No real user interviews have been completed for this exact message.",
+    "No conversion or comprehension data exists for this exact audience, channel, and context.",
+    "The strongest proof available is internal observation, so recommendations must remain hypotheses to test."
+  ],
+  "dataClassification": "public",
+  "containsPersonalData": false,
+  "containsCustomerConfidentialData": false,
+  "llmProcessingAllowed": false,
+  "retentionPolicy": "project_local_until_deleted",
+  "domainContext": "general_b2b",
+  "sensitiveDomainFlags": [],
+  "expertReviewRequired": false,
+  "expertReviewStatus": "not_required",
+  "blockedClaimTypes": [],
+  "publishReadiness": "not_assessed"
+}

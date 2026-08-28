@@ -1,0 +1,48 @@
+{
+  "artifactType": "workplace_assistance_request",
+  "schemaVersion": 1,
+  "requestId": "assist-request-synthetic-interpret",
+  "mode": "interpret",
+  "createdAt": "2026-07-25T15:05:00+00:00",
+  "purpose": "self_workplace_communication_assistance",
+  "situation": {
+    "context": "stakeholder_alignment",
+    "summary": "Interpret an ambiguous follow-up without treating a possible motive as fact.",
+    "channel": "teams_chat",
+    "audience": "project stakeholder",
+    "desiredOutcome": "Identify the smallest safe clarification."
+  },
+  "facts": [
+    {
+      "factId": "fact-incoming-question-01",
+      "statement": "The stakeholder asked who owns the rollout and when approval is needed.",
+      "status": "explicit_fact",
+      "sourceType": "direct_quote",
+      "category": "general",
+      "sourceReference": "Synthetic chat message A"
+    }
+  ],
+  "incomingText": "Can you clarify who owns the rollout and when you need approval?",
+  "asks": [],
+  "authority": {
+    "state": "unknown",
+    "domainOwners": [],
+    "evidenceState": "user_asserted",
+    "evidenceFactIds": []
+  },
+  "contributors": [],
+  "decisions": [],
+  "commitments": [],
+  "unresolvedItems": [],
+  "careerEvidence": [],
+  "energyState": "steady",
+  "requestedActions": [
+    "interpret_ambiguity"
+  ],
+  "authorization": {
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "humanReviewRequired": true,
+    "profileBelongsToCurrentUser": true
+  }
+}

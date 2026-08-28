@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mindfront"
+  short_description: "Mindfront workplace, message, and reference routing"
+  default_prompt: "Use $mindfront to interpret this workplace interaction and recommend a clear, evidence-bounded next move."

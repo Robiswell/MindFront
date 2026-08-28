@@ -1,0 +1,64 @@
+{
+  "artifactType": "self_declared_workplace_assistance_profile",
+  "schemaVersion": 1,
+  "profileId": "self-assistance-profile-synthetic-primary",
+  "purpose": "autistic_workplace_communication_accommodation",
+  "selfDeclared": true,
+  "userDeclaredAccommodationContext": "autistic_workplace_communication",
+  "careerGoals": {
+    "targetRole": "AI Enablement Lead at Example Dynamics",
+    "targetHorizon": "within the current contract period",
+    "primaryDirection": "people_leadership",
+    "successDefinition": "Earn formally delegated scope by delivering measurable outcomes, repeatable systems, and visible teammate enablement."
+  },
+  "strengths": [
+    "ambition",
+    "decisive_action",
+    "follow_through",
+    "knowledge_seeking",
+    "leadership_drive",
+    "open_mindedness",
+    "stakeholder_initiative",
+    "team_advocacy",
+    "technical_depth"
+  ],
+  "knownCommunicationRisks": [
+    "authority_ambiguity",
+    "dismissive_language",
+    "fatigue_errors",
+    "message_stacking",
+    "motive_attribution",
+    "overexplaining",
+    "perceived_condescension",
+    "premature_certainty",
+    "spotlight_competition",
+    "territorial_framing"
+  ],
+  "supportPreferences": {
+    "alternativeInterpretationCount": 3,
+    "careerEffectivenessWeight": 70,
+    "factInferenceSeparation": true,
+    "includeInterruptionSentence": true,
+    "includeShortVersion": true,
+    "layeredDetail": true
+  },
+  "authenticityConstraints": {
+    "doNotImitateRecipient": true,
+    "doNotSuppressPersonality": true,
+    "preserveAmbition": true,
+    "preserveDirectness": true,
+    "preserveTeamAdvocacy": true,
+    "preserveTechnicalPrecision": true
+  },
+  "energyPreferences": {
+    "fatigueRequiresShortMode": true,
+    "rushedStateRequiresPause": true
+  },
+  "careerAccountabilityModel": "single_point_of_accountability_with_distributed_ownership",
+  "authorization": {
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "humanReviewRequired": true,
+    "profileBelongsToCurrentUser": true
+  }
+}

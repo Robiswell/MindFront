@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "registryId": "mindfront-audience-lenses",
+  "version": "0.1.0",
+  "status": "phase_0_seed",
+  "sourceDocuments": [
+    "docs/ethical-boundaries.md",
+    "docs/evidence-policy.md",
+    "docs/scoring-model.md"
+  ],
+  "syntheticBoundary": {
+    "simulationNotice": "This is simulated feedback from a configured audience lens, not real user research.",
+    "notMarketEvidence": true,
+    "maximumRecommendationState": "hypothesis_to_test",
+    "disallowedEvidenceBasis": [
+      "real_user_data",
+      "small_user_test"
+    ],
+    "requiredOutputFields": [
+      "simulationNotice",
+      "notMarketEvidence",
+      "recommendedValidation"
+    ]
+  },
+  "enums": {
+    "status": [
+      "active",
+      "draft",
+      "deprecated",
+      "blocked"
+    ],
+    "roleFit": [
+      "target_user",
+      "buyer",
+      "evaluator",
+      "accessibility_review",
+      "non_target"
+    ],
+    "defaultEvidenceBasis": [
+      "synthetic_reader_stress_test",
+      "heuristic_inference"
+    ]
+  },
+  "lenses": [
+    {
+      "lensId": "lens-target-user-comprehension",
+      "label": "Target User Comprehension Lens",
+      "status": "active",
+      "roleFit": "target_user",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Stress-test whether a likely target user can understand the offer, audience, outcome, and next step after one pass.",
+      "assumptions": [
+        "The user has the job context named in the brief",
+        "The user has not received a sales explanation outside the supplied copy"
+      ],
+      "reviewQuestions": [
+        "Can the reader name what the product or offer is?",
+        "Can the reader name who it is for?",
+        "Can the reader name the practical next step?"
+      ],
+      "frictionSignals": [
+        "unclear category",
+        "missing audience",
+        "missing next step",
+        "abstract transformation language"
+      ],
+      "safetyRules": [
+        "Do not infer market preference",
+        "Do not claim real readers will understand",
+        "Recommend a comprehension test when uncertainty remains"
+      ],
+      "blockedUses": [
+        "validated market evidence",
+        "conversion prediction",
+        "proof of buyer preference"
+      ],
+      "recommendedValidation": "Ask five target users to read the first sentence and describe what the product is, who it is for, and what action they would take next.",
+      "principleIds": [
+        "processing-fluency",
+        "category-clarity"
+      ]
+    },
+    {
+      "lensId": "lens-technical-evaluator-proof",
+      "label": "Technical Evaluator Proof Lens",
+      "status": "active",
+      "roleFit": "evaluator",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Stress-test whether proof, caveats, and technical claims are inspectable without overstating certainty.",
+      "assumptions": [
+        "The evaluator is skeptical of unsupported performance, security, integration, and reliability claims",
+        "The evaluator expects tradeoffs and limits to be visible"
+      ],
+      "reviewQuestions": [
+        "Which claims would require proof before belief?",
+        "Which words sound like unsupported authority or certainty?",
+        "Are limitations and caveats visible enough?"
+      ],
+      "frictionSignals": [
+        "missing proof",
+        "unsupported superlative",
+        "quantified claim without source",
+        "hidden implementation caveat"
+      ],
+      "safetyRules": [
+        "Do not invent proof",
+        "Mark unsupported claims as blocked_unsupported",
+        "Require source or evidence ids for material claims"
+      ],
+      "blockedUses": [
+        "technical guarantee",
+        "security assurance without expert review",
+        "validated implementation claim"
+      ],
+      "recommendedValidation": "Have a qualified evaluator review the claim/proof map and mark which claims are believable, missing proof, or require expert review.",
+      "principleIds": [
+        "claim-proof-alignment",
+        "validation-before-certainty"
+      ]
+    },
+    {
+      "lensId": "lens-executive-sponsor-relevance",
+      "label": "Executive Sponsor Relevance Lens",
+      "status": "active",
+      "roleFit": "buyer",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Stress-test whether the message states a credible business problem, practical value, and decision path without hype.",
+      "assumptions": [
+        "The sponsor scans quickly",
+        "The sponsor needs relevance, risk, and next-step clarity"
+      ],
+      "reviewQuestions": [
+        "What business problem is this solving?",
+        "What decision or next step is being requested?",
+        "What proof would be needed before sponsoring the next step?"
+      ],
+      "frictionSignals": [
+        "vague business value",
+        "unclear time relevance",
+        "missing decision path",
+        "hype without proof"
+      ],
+      "safetyRules": [
+        "Use unclear time relevance instead of low urgency",
+        "Do not create fake urgency",
+        "Tie recommendations to evidence or testable hypotheses"
+      ],
+      "blockedUses": [
+        "budget approval prediction",
+        "purchase intent claim",
+        "validated executive preference"
+      ],
+      "recommendedValidation": "Ask target sponsors what decision they think the copy is asking for and what proof they would need before agreeing to the next step.",
+      "principleIds": [
+        "problem-first-framing",
+        "claim-proof-alignment"
+      ]
+    },
+    {
+      "lensId": "lens-first-time-reader-clarity",
+      "label": "First-Time Reader Clarity Lens",
+      "status": "active",
+      "roleFit": "non_target",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Stress-test plain-English understandability for readers with limited prior context.",
+      "assumptions": [
+        "The reader lacks insider vocabulary",
+        "The reader will not work hard to resolve pronouns, acronyms, or vague references"
+      ],
+      "reviewQuestions": [
+        "Which terms require prior context?",
+        "Which pronouns or references are ambiguous?",
+        "Can the reader summarize the message in one sentence?"
+      ],
+      "frictionSignals": [
+        "acronym without expansion",
+        "pronoun ambiguity",
+        "category missing",
+        "stacked abstraction"
+      ],
+      "safetyRules": [
+        "Do not downgrade necessary technical terms automatically",
+        "Recommend explanation when a term is essential",
+        "Do not claim non-target clarity equals target-user usefulness"
+      ],
+      "blockedUses": [
+        "target-user validation",
+        "buyer preference inference",
+        "conversion forecast"
+      ],
+      "recommendedValidation": "Run a five-minute comprehension test with target users after plain-language issues are fixed.",
+      "principleIds": [
+        "processing-fluency",
+        "cognitive-load-limits",
+        "concreteness-and-specificity"
+      ]
+    },
+    {
+      "lensId": "lens-anxiety-reduction-accessibility",
+      "label": "Anxiety-Reduction Accessibility Lens",
+      "status": "active",
+      "roleFit": "accessibility_review",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Reduce intimidation and pressure while preserving reader agency, clear risk, and access to support or expert review when needed.",
+      "assumptions": [
+        "Some readers may feel pressure, confusion, or concern when risk, eligibility, or consequence language is unclear",
+        "The message should clarify choices without exploiting anxiety"
+      ],
+      "reviewQuestions": [
+        "Does the copy preserve user control?",
+        "Does it clarify risk without exaggerating fear?",
+        "Does it avoid urgency, shame, and status pressure?",
+        "Does it recommend support or expert review when the domain requires it?"
+      ],
+      "frictionSignals": [
+        "fear pressure",
+        "status anxiety",
+        "fake urgency",
+        "unclear risk",
+        "missing support path"
+      ],
+      "safetyRules": [
+        "Clarify risk",
+        "Preserve user control",
+        "Reduce pressure",
+        "Avoid urgency and status language",
+        "Recommend safer support or expert review when needed"
+      ],
+      "blockedUses": [
+        "exploiting anxiety",
+        "targeting vulnerability",
+        "intensifying fear beyond evidence",
+        "manipulative persuasion aimed at minors or vulnerable people"
+      ],
+      "recommendedValidation": "Ask target readers whether the copy makes the choice, risk, and support path clearer without creating pressure to act.",
+      "principleIds": [
+        "user-agency-and-autonomy",
+        "sensitive-domain-gating"
+      ]
+    },
+    {
+      "lensId": "lens-specialist-bandwidth",
+      "label": "Specialist Bandwidth Lens",
+      "status": "active",
+      "roleFit": "target_user",
+      "defaultEvidenceBasis": "synthetic_reader_stress_test",
+      "notMarketEvidence": true,
+      "purpose": "Stress-test whether organization-facing documentation respects scarce specialist attention, preserves expert autonomy, and reaches usable action before asking the reader to learn a new framework.",
+      "assumptions": [
+        "The reader may be highly specialized and already carrying high cognitive load",
+        "The reader will resist generic onboarding, remedial framing, vague process language, and unnecessary learning tax",
+        "The document must preserve technical precision while making the fastest useful path obvious"
+      ],
+      "reviewQuestions": [
+        "Can the specialist reach a useful answer or action before learning a new framework?",
+        "Does the document preserve expert agency instead of sounding remedial or bureaucratic?",
+        "Are exact terms, caveats, and evidence boundaries visible enough for a technical reader to trust?",
+        "Does the page create reading momentum by making the next useful step obvious?",
+        "Which section would a busy specialist skip, resist, or challenge?"
+      ],
+      "frictionSignals": [
+        "hidden learning tax",
+        "high perceived effort",
+        "generic onboarding",
+        "remedial framing",
+        "loss of agency",
+        "vague process language",
+        "missing fast path",
+        "missing evidence boundary",
+        "unclear category",
+        "jargon barrier",
+        "missing proof",
+        "unclear next step",
+        "abstract value",
+        "abstract transformation language",
+        "coercive reading momentum",
+        "pressure",
+        "risk"
+      ],
+      "safetyRules": [
+        "Do not call readers entitled, difficult, lazy, or resistant",
+        "Do not remove necessary technical precision to chase simplicity",
+        "Do not frame reading momentum as addiction or dependency",
+        "Keep synthetic feedback separate from employee research",
+        "Recommend task-based validation before claiming adoption or performance impact"
+      ],
+      "blockedUses": [
+        "employee preference claim",
+        "performance improvement claim",
+        "validated adoption claim",
+        "psychological diagnosis of employees",
+        "manipulative attention capture"
+      ],
+      "recommendedValidation": "Ask specialists to use the document for a real task and measure skim-to-answer time, follow-up questions, task completion, skipped sections, trust objections, and whether the document felt respectful and useful.",
+      "principleIds": [
+        "specialist-bandwidth-and-autonomy",
+        "documentation-gravity-without-coercion",
+        "processing-fluency",
+        "claim-proof-alignment",
+        "validation-before-certainty"
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "ruleId": "audience-lens-rule-001",
+      "severity": "error",
+      "condition": "lens.notMarketEvidence != true",
+      "message": "Audience lens output must be marked as not market evidence."
+    },
+    {
+      "ruleId": "audience-lens-rule-002",
+      "severity": "error",
+      "condition": "lens.reviewQuestions is empty",
+      "message": "Audience lenses must include review questions."
+    },
+    {
+      "ruleId": "audience-lens-rule-003",
+      "severity": "error",
+      "condition": "lens.label contains anxious first-time user",
+      "message": "Use anxiety-reduction accessibility lens instead of anxious first-time user."
+    },
+    {
+      "ruleId": "audience-lens-rule-004",
+      "severity": "error",
+      "condition": "synthetic output recommendationState in [small_user_test_supported, validated_for_exact_context]",
+      "message": "Synthetic reader output cannot be treated as user validation."
+    }
+  ]
+}

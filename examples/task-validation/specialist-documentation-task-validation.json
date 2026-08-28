@@ -1,0 +1,106 @@
+{
+  "artifactType": "documentation_task_validation_input",
+  "baselineMetrics": {
+    "averageExpertRespectRating": 3.4,
+    "averageFollowUpQuestionCount": 2.6,
+    "averageReuseIntentRating": 2.8,
+    "completionRate": 0.4,
+    "medianSkimToAnswerSeconds": 180
+  },
+  "briefId": "brief-specialist-documentation-specialist-bandwidth",
+  "consentScriptUsed": true,
+  "containsCustomerConfidentialData": false,
+  "containsPersonalData": false,
+  "documentId": "specialist-doc-synthetic-v1",
+  "documentType": "internal_documentation",
+  "evidenceCollectionMethod": "small_task_validation",
+  "llmProcessingAllowed": false,
+  "observationSource": "synthetic_fixture",
+  "schemaVersion": 1,
+  "sessions": [
+    {
+      "completed": true,
+      "expertRespectRating": 4.5,
+      "followUpQuestionCount": 0,
+      "participantToken": "participant_001",
+      "reuseIntentRating": 4,
+      "roleSegment": "technical_specialist",
+      "sessionId": "session-001",
+      "skimToAnswerSeconds": 54,
+      "skippedSectionCount": 1,
+      "taskId": "task-find-next-action",
+      "trustObjectionCodes": []
+    },
+    {
+      "completed": true,
+      "expertRespectRating": 5,
+      "followUpQuestionCount": 1,
+      "participantToken": "participant_002",
+      "reuseIntentRating": 4.5,
+      "roleSegment": "technical_contributor",
+      "sessionId": "session-002",
+      "skimToAnswerSeconds": 66,
+      "skippedSectionCount": 0,
+      "taskId": "task-find-next-action",
+      "trustObjectionCodes": []
+    },
+    {
+      "completed": true,
+      "expertRespectRating": 4,
+      "followUpQuestionCount": 1,
+      "participantToken": "participant_003",
+      "reuseIntentRating": 4,
+      "roleSegment": "technical_solutions_consultant",
+      "sessionId": "session-003",
+      "skimToAnswerSeconds": 78,
+      "skippedSectionCount": 1,
+      "taskId": "task-identify-evidence-boundary",
+      "trustObjectionCodes": [
+        "source_register_clarity"
+      ]
+    },
+    {
+      "completed": true,
+      "expertRespectRating": 4.5,
+      "followUpQuestionCount": 0,
+      "participantToken": "participant_004",
+      "reuseIntentRating": 5,
+      "roleSegment": "technical_specialist",
+      "sessionId": "session-004",
+      "skimToAnswerSeconds": 49,
+      "skippedSectionCount": 1,
+      "taskId": "task-identify-evidence-boundary",
+      "trustObjectionCodes": []
+    },
+    {
+      "completed": false,
+      "expertRespectRating": 3.5,
+      "followUpQuestionCount": 2,
+      "participantToken": "participant_005",
+      "reuseIntentRating": 3.5,
+      "roleSegment": "technical_contributor",
+      "sessionId": "session-005",
+      "skimToAnswerSeconds": 124,
+      "skippedSectionCount": 2,
+      "taskId": "task-find-next-action",
+      "trustObjectionCodes": [
+        "owner_field_missing"
+      ]
+    }
+  ],
+  "sourceAnalysisReportId": "report-50c15cfc6f08",
+  "targetAudience": "technical specialists, technical contributors, and technical solutions consultants",
+  "tasks": [
+    {
+      "successCriteria": "Reader can identify the next action without asking the facilitator.",
+      "taskId": "task-find-next-action",
+      "taskPrompt": "Use the documentation to decide what you would do next for the stated workflow."
+    },
+    {
+      "successCriteria": "Reader can tell what is sourced, assumed, heuristic, or unvalidated.",
+      "taskId": "task-identify-evidence-boundary",
+      "taskPrompt": "Mark which parts of the documentation are evidence-backed versus still needing validation."
+    }
+  ],
+  "validationId": "validation-specialist-documentation-synthetic-001"
+}

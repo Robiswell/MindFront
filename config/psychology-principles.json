@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "registryId": "mindfront-psychology-principles",
+  "version": "0.1.0",
+  "status": "phase_0_seed",
+  "sourceDocuments": [
+    "docs/ethical-boundaries.md",
+    "docs/evidence-policy.md",
+    "docs/scoring-model.md"
+  ],
+  "principleAcceptanceStandard": {
+    "requiredFields": [
+      "principleId",
+      "label",
+      "status",
+      "evidenceBasis",
+      "sourceIds",
+      "definition",
+      "appliesToDimensions",
+      "misuseRisks",
+      "allowedUses",
+      "prohibitedUses",
+      "reviewedAt"
+    ],
+    "minimumStatusForAnalyzerUse": "accepted_for_phase_0",
+    "sourceRequirement": "Every principle must reference at least one evidence source, even when it represents general psychological knowledge.",
+    "misuseRequirement": "Every principle must state how it could be misused in manipulative or overconfident messaging."
+  },
+  "enums": {
+    "status": [
+      "draft",
+      "accepted_for_phase_0",
+      "needs_review",
+      "deprecated",
+      "blocked"
+    ],
+    "allowedUse": [
+      "finding_rationale",
+      "rubric_support",
+      "rewrite_rationale",
+      "research_handoff",
+      "ethical_gate"
+    ]
+  },
+  "principles": [
+    {
+      "principleId": "processing-fluency",
+      "label": "Processing Fluency",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "Messages are easier to evaluate when the reader can parse the product, audience, outcome, and next step without unnecessary effort.",
+      "appliesToDimensions": [
+        "clarity",
+        "cognitive_load"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff"
+      ],
+      "misuseRisks": [
+        "Over-simplifying a material caveat",
+        "Mistaking easy-to-read language for evidence that users prefer the offer"
+      ],
+      "prohibitedUses": [
+        "Claiming the market will understand or convert without real user data",
+        "Removing necessary risk, pricing, safety, or limitation language"
+      ],
+      "requiredCaveat": "Processing fluency supports a comprehension hypothesis, not a validated market conclusion.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "category-clarity",
+      "label": "Category Clarity",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "A first-pass reader should be able to name what the product or offer is before being asked to care about benefits.",
+      "appliesToDimensions": [
+        "clarity",
+        "concreteness"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff"
+      ],
+      "misuseRisks": [
+        "Forcing a complex or emerging product into a misleading familiar category",
+        "Treating category labels as proof of product fit"
+      ],
+      "prohibitedUses": [
+        "Inventing a category that the brief does not support",
+        "Strengthening claims beyond supplied proof"
+      ],
+      "requiredCaveat": "Category clarity is about understandability, not preference or purchase intent.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "cognitive-load-limits",
+      "label": "Cognitive Load Limits",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "Long sentences, stacked abstractions, acronyms, and multiple asks increase reader effort and can hide the core message.",
+      "appliesToDimensions": [
+        "cognitive_load",
+        "clarity"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale"
+      ],
+      "misuseRisks": [
+        "Reducing technical accuracy to chase brevity",
+        "Treating short copy as automatically effective"
+      ],
+      "prohibitedUses": [
+        "Deleting essential compliance language",
+        "Using simplicity to conceal tradeoffs"
+      ],
+      "requiredCaveat": "Lower cognitive load should preserve the substance of the original claim.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "concreteness-and-specificity",
+      "label": "Concreteness And Specificity",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "Specific nouns, actions, constraints, and examples make claims easier to inspect than abstract transformation language.",
+      "appliesToDimensions": [
+        "concreteness",
+        "trust_proof"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff"
+      ],
+      "misuseRisks": [
+        "Adding fake specificity",
+        "Turning examples into unsupported universal claims"
+      ],
+      "prohibitedUses": [
+        "Inventing metrics, customer names, outcomes, or proof",
+        "Presenting illustrative examples as validated evidence"
+      ],
+      "requiredCaveat": "Concrete wording must be grounded in the brief or registered evidence.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "claim-proof-alignment",
+      "label": "Claim And Proof Alignment",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "The strength of a recommendation or rewrite must not exceed the proof available for the underlying claim.",
+      "appliesToDimensions": [
+        "trust_proof",
+        "ethical_risk"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Letting polished wording make weak evidence look stronger",
+        "Treating user-provided proof notes as verified evidence"
+      ],
+      "prohibitedUses": [
+        "Marking unsupported quantified claims as ready",
+        "Upgrading confidence because a report looks polished"
+      ],
+      "requiredCaveat": "Unsupported proof blocks publish-ready recommendations.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "user-agency-and-autonomy",
+      "label": "User Agency And Autonomy",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "Persuasive recommendations should preserve reader control, disclose tradeoffs, and avoid coercive pressure.",
+      "appliesToDimensions": [
+        "ethical_risk",
+        "trust_proof"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rewrite_rationale",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Using autonomy language while still creating fear, shame, or status pressure",
+        "Treating user agency as a style preference instead of a safety requirement"
+      ],
+      "prohibitedUses": [
+        "Recommending fake urgency, fake scarcity, shame, social pressure, or hidden tradeoffs",
+        "Targeting vulnerability or inferred sensitive traits"
+      ],
+      "requiredCaveat": "The system may name user problems only when grounded in the brief or evidence.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "problem-first-framing",
+      "label": "Problem-First Framing",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "A message may begin with the user's concrete problem, but it must not intensify fear, shame, status anxiety, or loss aversion beyond evidence.",
+      "appliesToDimensions": [
+        "ethical_risk",
+        "clarity"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rewrite_rationale",
+        "ethical_gate",
+        "research_handoff"
+      ],
+      "misuseRisks": [
+        "Reintroducing pain-first manipulation under a softer name",
+        "Creating unsupported urgency from a vague problem"
+      ],
+      "prohibitedUses": [
+        "Using fear or status loss to pressure action",
+        "Calling a problem urgent without evidence of time relevance"
+      ],
+      "requiredCaveat": "Use unclear time relevance instead of low urgency when the timing basis is not known.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "sensitive-domain-gating",
+      "label": "Sensitive Domain Gating",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "Health, finance, legal, employment, housing, insurance, education, security, minors, crisis, political, and public-benefits contexts require stricter gates than ordinary B2B copy.",
+      "appliesToDimensions": [
+        "ethical_risk",
+        "trust_proof"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Treating regulated or vulnerable contexts like ordinary marketing copy",
+        "Providing advice-like language without qualified review"
+      ],
+      "prohibitedUses": [
+        "Medical, legal, financial, or mental-health claims presented as advice or guaranteed outcomes",
+        "Political or civic persuasion targeting behavior or belief",
+        "Regulated eligibility decisions for housing, insurance, employment, education, credit, or public benefits"
+      ],
+      "requiredCaveat": "Restricted domains require needs_expert_review and blocked publish-readiness until review is recorded.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "validation-before-certainty",
+      "label": "Validation Before Certainty",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-002"
+      ],
+      "definition": "The system should label messaging advice as a testable hypothesis unless mapped real-user data or qualified expert review supports the exact context.",
+      "appliesToDimensions": [
+        "trust_proof",
+        "ethical_risk"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "research_handoff",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Treating repeated model agreement as validation",
+        "Treating a polished report as proof"
+      ],
+      "prohibitedUses": [
+        "Saying users will understand, prefer, convert, or buy without mapped evidence",
+        "Using synthetic reader stress tests as market evidence"
+      ],
+      "requiredCaveat": "Repeated LLM agreement and synthetic feedback are not real user validation.",
+      "reviewedAt": "2026-05-09"
+    },
+    {
+      "principleId": "specialist-bandwidth-and-autonomy",
+      "label": "Specialist Bandwidth And Autonomy",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-003"
+      ],
+      "definition": "Documentation for scarce technical specialists should reach useful value quickly, preserve expert agency, and avoid making the reader pay a learning tax before they can act.",
+      "appliesToDimensions": [
+        "clarity",
+        "cognitive_load",
+        "trust_proof",
+        "ethical_risk"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Flattening necessary technical accuracy to make documentation feel easier",
+        "Using status-sensitive framing to flatter or pressure expert readers",
+        "Treating a specialist-friendly heuristic as proof of employee adoption"
+      ],
+      "prohibitedUses": [
+        "Calling readers entitled, difficult, lazy, or resistant in deliverables",
+        "Removing required context, constraints, or safety caveats to reduce effort",
+        "Claiming performance improvement without mapped task evidence"
+      ],
+      "requiredCaveat": "This principle is a Codex documentation heuristic for organizational context, not employee research or validated adoption evidence.",
+      "reviewedAt": "2026-06-01"
+    },
+    {
+      "principleId": "documentation-gravity-without-coercion",
+      "label": "Documentation Gravity Without Coercion",
+      "status": "accepted_for_phase_0",
+      "evidenceBasis": "heuristic_inference",
+      "sourceIds": [
+        "source-003"
+      ],
+      "definition": "Useful documentation should create reading momentum by making the next concrete answer, decision, or action easier to reach, while avoiding manipulative pressure or addiction framing.",
+      "appliesToDimensions": [
+        "clarity",
+        "cognitive_load",
+        "concreteness",
+        "ethical_risk"
+      ],
+      "allowedUses": [
+        "finding_rationale",
+        "rubric_support",
+        "rewrite_rationale",
+        "research_handoff",
+        "ethical_gate"
+      ],
+      "misuseRisks": [
+        "Optimizing for compulsive reading instead of task usefulness",
+        "Making prose more engaging while hiding weak evidence or unresolved caveats",
+        "Treating polished structure as proof that people cannot live without the documentation"
+      ],
+      "prohibitedUses": [
+        "Using dark patterns, shame, fake urgency, or status pressure to keep attention",
+        "Describing heuristic reader momentum as addiction or dependency in company-facing deliverables",
+        "Claiming productivity, adoption, or business-performance lift without real-world validation"
+      ],
+      "requiredCaveat": "Documentation gravity means usable reading momentum, not coercion, validated preference, or measured performance lift.",
+      "reviewedAt": "2026-06-01"
+    }
+  ],
+  "validationRules": [
+    {
+      "ruleId": "principle-rule-001",
+      "severity": "error",
+      "condition": "principle.sourceIds is empty",
+      "message": "Every principle must reference at least one source id."
+    },
+    {
+      "ruleId": "principle-rule-002",
+      "severity": "error",
+      "condition": "principle.misuseRisks is empty",
+      "message": "Every principle must list misuse risks."
+    },
+    {
+      "ruleId": "principle-rule-003",
+      "severity": "error",
+      "condition": "principle.status == accepted_for_phase_0 AND principle.prohibitedUses is empty",
+      "message": "Accepted principles must define prohibited uses."
+    },
+    {
+      "ruleId": "principle-rule-004",
+      "severity": "error",
+      "condition": "principle uses pain-first language",
+      "message": "Use problem-first framing instead of pain-first language."
+    }
+  ]
+}

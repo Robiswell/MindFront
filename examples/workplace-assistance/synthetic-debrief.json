@@ -1,0 +1,92 @@
+{
+  "artifactType": "workplace_assistance_request",
+  "schemaVersion": 1,
+  "requestId": "assist-request-synthetic-debrief",
+  "mode": "debrief",
+  "createdAt": "2026-07-25T15:10:00+00:00",
+  "purpose": "self_workplace_communication_assistance",
+  "situation": {
+    "context": "cross_functional_handoff",
+    "summary": "Capture a synthetic pilot handoff without converting interpretations into decisions.",
+    "channel": "meeting",
+    "audience": "pilot workstream owners",
+    "desiredOutcome": "Confirm decisions, owners, dates, and unresolved dependencies."
+  },
+  "facts": [
+    {
+      "factId": "fact-pilot-sequence-01",
+      "statement": "The group agreed to complete security validation before the pilot release.",
+      "status": "explicit_fact",
+      "sourceType": "direct_observation",
+      "category": "decision",
+      "sourceReference": "Synthetic meeting observation A"
+    },
+    {
+      "factId": "fact-delivery-delegation-01",
+      "statement": "The technology director delegated delivery coordination for the pilot handoff.",
+      "status": "explicit_fact",
+      "sourceType": "documented_record",
+      "category": "authority_evidence",
+      "sourceReference": "Synthetic delegation note B"
+    }
+  ],
+  "incomingText": "That sequence works. Please send the owners and dates after the meeting.",
+  "asks": [],
+  "authority": {
+    "state": "explicitly_delegated",
+    "deliveryOwner": "the solution coordinator",
+    "domainOwners": [
+      {
+        "domain": "security validation",
+        "ownerRole": "the security specialist",
+        "ownershipType": "owns_workstream"
+      }
+    ],
+    "finalApprovalOwner": "the technology director",
+    "evidenceState": "stakeholder_confirmed",
+    "evidenceFactIds": [
+      "fact-delivery-delegation-01"
+    ]
+  },
+  "contributors": [
+    {
+      "contributorId": "contributor-security-specialist-02",
+      "role": "the security specialist",
+      "contribution": "security validation",
+      "creditIncluded": true,
+      "ownershipType": "owns_workstream"
+    }
+  ],
+  "decisions": [
+    {
+      "decisionId": "decision-pilot-sequence-01",
+      "statement": "Security validation precedes the pilot release.",
+      "owner": "the solution coordinator",
+      "dueDate": "2026-08-01",
+      "status": "confirmed"
+    }
+  ],
+  "commitments": [
+    {
+      "commitmentId": "commitment-security-check-01",
+      "statement": "Complete the security validation checklist.",
+      "owner": "the security specialist",
+      "dueDate": "2026-07-30",
+      "status": "confirmed"
+    }
+  ],
+  "unresolvedItems": [
+    "Confirm the final pilot participant list."
+  ],
+  "careerEvidence": [],
+  "energyState": "steady",
+  "requestedActions": [
+    "debrief"
+  ],
+  "authorization": {
+    "automaticSendingAllowed": false,
+    "coworkerEvaluationAllowed": false,
+    "humanReviewRequired": true,
+    "profileBelongsToCurrentUser": true
+  }
+}
